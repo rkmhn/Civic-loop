@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Tiranga (Indian Flag) Color Gradients & Panels */
+  .tiranga-ribbon {
+    background: linear-gradient(90deg, #FF671F 0%, #FF671F 33.3%, #FFFFFF 33.3%, #FFFFFF 66.6%, #138808 66.6%, #138808 100%);
+  }
+
+  .tiranga-gradient-h {
+    background: linear-gradient(90deg, rgba(255, 103, 31, 0.08) 0%, rgba(30, 58, 138, 0.05) 50%, rgba(19, 136, 8, 0.08) 100%);
+  }
+
+  .tiranga-gradient-border {
+    border-image: linear-gradient(90deg, #FF671F, #cbd5e1, #138808) 1;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
+  }
+
+  .glass-panel-light {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  }
+
+  .glass-card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.05);
+  }
+
+  .glass-card-saffron {
+    background: linear-gradient(135deg, rgba(255, 247, 237, 0.95) 0%, #ffffff 100%);
+    border: 1px solid rgba(251, 146, 60, 0.35);
+    box-shadow: 0 4px 16px -2px rgba(234, 88, 12, 0.06);
+  }
+
+  .glass-card-green {
+    background: linear-gradient(135deg, rgba(236, 253, 245, 0.95) 0%, #ffffff 100%);
+    border: 1px solid rgba(52, 211, 153, 0.35);
+    box-shadow: 0 4px 16px -2px rgba(16, 185, 129, 0.06);
+  }
+
+  .glass-card-chakra {
+    background: linear-gradient(135deg, rgba(239, 246, 255, 0.95) 0%, #ffffff 100%);
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    box-shadow: 0 4px 16px -2px rgba(37, 99, 235, 0.06);
+  }
+
+  .glass-input {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
+  }
+
+  .glass-glow-saffron {
+    box-shadow: 0 0 25px -3px rgba(255, 103, 31, 0.2);
+  }
+
+  .glass-glow-emerald {
+    box-shadow: 0 0 25px -3px rgba(19, 136, 8, 0.2);
+  }
+
+  .glass-glow-chakra {
+    box-shadow: 0 0 25px -3px rgba(30, 58, 138, 0.15);
+  }
+}
+
+/* Custom scrollbars with Tiranga theme */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 103, 31, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(19, 136, 8, 0.6);
+}
+
+/* Leaflet map custom tiles & markers */
+.leaflet-container {
+  font-family: inherit;
+  background-color: #f8fafc !important;
+  z-index: 1;
+}
+
+.civic-marker-pulse {
+  position: relative;
+}
+.civic-marker-pulse::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 103, 31, 0.7);
+  animation: markerPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes markerPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Spin animation for Ashoka Chakra */
+@keyframes chakraRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-chakra {
+  animation: chakraRotate 24s linear infinite;
+}
+
+/* Background Grid Drift Animation */
+@keyframes gridDrift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+.civic-animated-grid {
+  background-image: 
+    linear-gradient(to right, rgba(251, 146, 60, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridDrift 20s linear infinite;
+}
+
+/* Radar Pulse / Ping Animation for Live Status Indicator */
+@keyframes radarPing {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(2.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+.animate-radar-ping {
+  animation: radarPing 2.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Shimmer Sweep Animation for Skeleton Loader & Highlight Bars */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmerSweep 2s infinite;
+}
+
+/* Gentle CTA Pulse Glow */
+@keyframes ctaPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(255, 103, 31, 0.25), 0 0 24px rgba(255, 103, 31, 0.1);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 103, 31, 0.45), 0 0 35px rgba(255, 103, 31, 0.2);
+    transform: scale(1.02);
+  }
+}
+
+.animate-cta-pulse {
+  animation: ctaPulseGlow 3s ease-in-out infinite;
+}
+
+/* Float Animation for Civic Icons */
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-float {
+  animation: subtleFloat 4s ease-in-out infinite;
+}
+
+

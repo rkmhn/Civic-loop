@@ -1,0 +1,6 @@
+{
+  "name": "CivicLoop - Citizen Reporting & Budget Voting",
+  "description": "Evidence-grounded civic complaint reporting, AI duplicate detection, hotspot clustering, public status tracking, and participatory budget voting.",
+  "requestFramePermissions": ["microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
