@@ -116,11 +116,24 @@ export const Navbar: React.FC = () => {
           >
             {/* Professional Gradient Logo */}
             <div className="w-9 h-9 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-all shrink-0 relative overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, #FF671F 0%, #FF8C42 25%, #FFB366 50%, #138808 75%, #22C55E 100%)' }}>
-              <svg className="w-5 h-5 relative z-10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 3a9 9 0 0 1 9 9 9 9 0 0 1-9 9 9 9 0 0 1-6.36-2.64" />
-                <path d="M12 21a9 9 0 0 1-9-9 9 9 0 0 1 9-9 9 9 0 0 1 6.36 2.64" stroke="rgba(255,255,255,0.6)" />
-                <circle cx="12" cy="12" r="2.5" fill="white" stroke="none" />
+              style={{ background: 'linear-gradient(135deg, #FF671F 0%, #FF8C42 25%, #FFFFFF 50%, #138808 75%, #22C55E 100%)' }}>
+              {/* Ashoka Chakra SVG */}
+              <svg className="w-6 h-6 relative z-10 animate-chakra" viewBox="0 0 48 48" fill="none">
+                {/* Outer ring */}
+                <circle cx="24" cy="24" r="20" stroke="#1a3a6e" strokeWidth="2.5" fill="none" />
+                {/* Inner hub */}
+                <circle cx="24" cy="24" r="4" fill="#1a3a6e" />
+                {/* 24 Spokes */}
+                {Array.from({ length: 24 }, (_, i) => {
+                  const angle = (i * 15) * (Math.PI / 180);
+                  const x2 = 24 + 18 * Math.cos(angle);
+                  const y2 = 24 + 18 * Math.sin(angle);
+                  return (
+                    <line key={i} x1="24" y1="24" x2={x2} y2={y2} stroke="#1a3a6e" strokeWidth="1.2" strokeLinecap="round" />
+                  );
+                })}
+                {/* Small circle at rim where spokes meet */}
+                <circle cx="24" cy="24" r="20" stroke="#1a3a6e" strokeWidth="0.8" fill="none" strokeDasharray="1 4.6" />
               </svg>
             </div>
             <div>
